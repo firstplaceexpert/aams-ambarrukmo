@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-w: 260px;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-surface-50 text-stone-800 font-sans;
+  }
+
+  h1 { @apply text-2xl font-bold tracking-tight font-serif; }
+  h2 { @apply text-xl font-semibold font-serif; }
+  h3 { @apply text-lg font-semibold; }
+}
+
+@layer components {
+  /* ---- BUTTONS ---- */
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium
+           transition-all duration-150 disabled:opacity-50 disabled:cursor-not-allowed
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-sm;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-stone-700 border border-stone-200 hover:bg-stone-50 shadow-sm;
+  }
+  .btn-danger {
+    @apply btn bg-heritage-500 text-white hover:bg-heritage-600;
+  }
+  .btn-ghost {
+    @apply btn text-stone-600 hover:bg-stone-100;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  /* ---- FORM INPUTS ---- */
+  .input {
+    @apply w-full rounded-lg border border-stone-200 bg-white px-3 py-2 text-sm
+           placeholder:text-stone-400 shadow-sm
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           disabled:bg-surface-100 disabled:cursor-not-allowed
+           transition-colors duration-150;
+  }
+  .input-error {
+    @apply border-heritage-400 focus:ring-heritage-400;
+  }
+  .label {
+    @apply block text-sm font-medium text-stone-700 mb-1;
+  }
+  .field-error {
+    @apply mt-1 text-xs text-heritage-500;
+  }
+
+  /* ---- CARDS ---- */
+  .card {
+    @apply bg-white rounded-xl border border-stone-100 shadow-card;
+  }
+  .card-header {
+    @apply px-6 py-4 border-b border-stone-100;
+  }
+  .card-body {
+    @apply px-6 py-4;
+  }
+
+  /* ---- BADGES ---- */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .badge-green  { @apply badge bg-emerald-50 text-emerald-700; }
+  .badge-yellow { @apply badge bg-amber-50 text-amber-700; }
+  .badge-red    { @apply badge bg-heritage-50 text-heritage-500; }
+  .badge-blue   { @apply badge bg-blue-50 text-blue-700; }
+  .badge-slate  { @apply badge bg-stone-100 text-stone-600; }
+  .badge-purple { @apply badge bg-purple-50 text-purple-700; }
+  .badge-gold   { @apply badge bg-brand-50 text-brand-600; }
+  .badge-forest { @apply badge bg-forest-50 text-forest-500; }
+
+  /* ---- TABLE ---- */
+  .table-wrapper {
+    @apply w-full overflow-x-auto rounded-xl border border-stone-100;
+  }
+  .table {
+    @apply w-full text-sm text-left;
+  }
+  .table thead {
+    @apply bg-surface-50 text-stone-500 uppercase text-xs font-semibold tracking-wide;
+  }
+  .table th {
+    @apply px-4 py-3 whitespace-nowrap;
+  }
+  .table td {
+    @apply px-4 py-3 border-t border-stone-50 text-stone-700;
+  }
+  .table tbody tr {
+    @apply hover:bg-surface-50 transition-colors duration-100;
+  }
+
+  /* ---- SIDEBAR NAV ---- */
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium
+           text-stone-400 hover:text-brand-100 hover:bg-white/10
+           transition-all duration-150 cursor-pointer;
+  }
+  .nav-item.active {
+    @apply bg-brand-500/90 text-white shadow-sm;
+  }
+
+  /* ---- PAGE HEADER ---- */
+  .page-header {
+    @apply flex items-start justify-between mb-6;
+  }
+  .page-title {
+    @apply text-2xl font-bold text-stone-900 font-serif;
+  }
+  .page-subtitle {
+    @apply text-sm text-stone-500 mt-0.5;
+  }
+
+  /* ---- STAT CARD ---- */
+  .stat-card {
+    @apply card p-6 flex items-center gap-4;
+  }
+  .stat-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.stone.200') transparent;
+  }
+}
